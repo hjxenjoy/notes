@@ -4,6 +4,10 @@ Something todo after create-react-app project.
 
 ## Install typescript
 
+```sh
+yarn add -D typescript
+```
+
 because
 
 ```sh
@@ -29,7 +33,7 @@ yarn add -D cz-conventional-changelog husky lint-staged
 yarn add -D cz-customizable
 ```
 
-add package config
+* Add package config
 
 ```json
 {
@@ -52,7 +56,7 @@ add package config
 }
 ```
 
-add custom commitizen config
+* Add custom commitizen config
 
 ```json
 {
@@ -65,4 +69,49 @@ add custom commitizen config
     }
   },
 }
+```
+
+## Install Dev Proxy
+
+```sh
+yarn add http-proxy-middleware
+```
+
+Add setupProxy.js
+
+```js
+const proxy = require('http-proxy-middleware')
+
+const { DEV_PROXY } = process.env
+
+module.exports = app => {
+  app.use(
+    proxy('/api', {
+      target: DEV_PROXY,
+      changeOrigin: true,
+    })
+  )
+}
+```
+
+## Install Sass Support
+
+```sh
+yarn add -D sass node-sass
+```
+
+## Install Basic Dependencies
+
+```sh
+yarn add axios classnames prop-types query-string react-helmet react-router react-router-config react-router-dom
+```
+
+## Add some dotfiles, config and basic component
+
+```
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc
+.prettierrc
 ```
